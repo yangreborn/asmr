@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-s@9(t1n^_m_ff*w*)+^$9@m35e@m_*t)$fiit*^#z=kdszyv=n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# settings.py
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '47.100.161.8',  # 您的阿里云公网 IP
+    '47.100.161.8:8000',  # 带端口的 IP
+]
 
 
 # Application definition
