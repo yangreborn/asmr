@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +24,22 @@ SECRET_KEY = 'django-insecure-s@9(t1n^_m_ff*w*)+^$9@m35e@m_*t)$fiit*^#z=kdszyv=n
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+
+# 静态文件配置
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 重要！收集静态文件到这里
+
+# 开发环境静态文件目录（本地自定义的静态文件）
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # 如果有自定义静态文件
+]
+
+# 查找静态文件的目录
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
